@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="fonts/fontawesome/css/fontawesome.min.css"> -->
+    <link rel="stylesheet" href="/fonts/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="/wwwroot/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>login Page</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 "></div>
+            <div class="col-md-4 pt-5">
+                <form id="registerForm" method="post" class="d-none">
+                    <div class="row">
+                        <div class="col-md-12"><img class="logo mb-4" src="image/Logo.png" alt="logo"></div>
+                        <div class="col-md-12"><p class="fw-bold mb-3">ورود | ثبت‌نام</p></div>
+                        <div class="form-group " id="myDIV">
+                            <label class="mb-1" for="uname"> نام کاربری</label>
+                            <i class="fas fa-user"></i>
+                            <input class="w-100 rounded pe-2 mb-3" autocomplete="off" dir="rtl" asp-for="UserName" type="text" id="uname"
+                                placeholder="آزاده داوری" onkeypress='validateUserName(event)' onkeyup="checkUserName(this)" />
+                            <div id="userNameDiv"> </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="mb-1" for="ncode"> کدملی</label>
+                            <i class="fas fa-user-circle"></i>
+                            <input class="w-100 rounded pe-2 mb-3" autocomplete="off" dir="rtl" asp-for="NationalCode" type="text"
+                                maxlength="10" id="ncode" placeholder="کد ملی 10 رقمی" onkeypress='validateForOnlyNumbersPress(event)'
+                                onkeyup="CheckNcode(this)">
+                            <div id="nCodeDiv"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-1" for="telNumber">شماره موبایل</label>
+                            <i class="fas fa-phone"></i>
+                            <input class="w-100 rounded ps-5 mb-4" autocomplete="off" type="tel" asp-for="Mobile" maxlength="11" id="telNumber"
+                                placeholder="09*********" onkeypress='validateForOnlyNumbersPress(event)' onkeyup="checkMobile(this)" />
+                            <div class="mb-3" id="MobileDiv"> </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="button rounded p-2" type="submit" value="Create" id="submitRegisterForm">
+                                ارسال
+                            </div>
+                            <p class="message">حساب کاربری دارید؟ <a href="#">ورود</a></p>
+                        </div>
+                    </div>
+                </form>
+                <form id="mobileForm" method="post" class="d-none">
+                    <div class="row">
+                        <div class="col-md-12"><img class="mb-3 logo" src="image/Logo.png" alt=""></div>
+                        <div class="col-md-12"><p class="fw-bold mb-3">ورود | ثبت‌نام</p></div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="mb-1" for="telNumber">شماره موبایل</label>
+                                <i class="fas fa-phone"></i>
+                                <input class="w-100 rounded ps-5 mb-4" autocomplete="off" type="tel" asp-for="Mobile" maxlength="11"
+                                    id="secondtelNumber" placeholder="09*********" onkeypress='validateForOnlyNumbersPress(event)'
+                                    onkeyup="checkMobileFirstpage(this)" />
+                                <div class="mb-3" id="MobileSecondDiv"> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button class="button rounded p-2" type="button" value="Create" id="submitMobile" onclick="ChekUserMobileExist()">
+                                    ارسال
+                                </button>
+                                <p dir="ltr" class="message ms-1"><a href="https://www.upto.ir">Upto.ir</a>ورود شما به معنای پذیرش
+                                    شرایط سامانه و قوانین حریم خصوصی میباشد </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form id="mobileActiveCodeForm" method="post" class="">
+                    <div class="row">
+                        <div class="col-md-12"><img class="mb-3 logo" src="image/Logo.png" alt=""></div>
+                        <div class="col-md-12"><p class="fw-bold mb-3 fs-14">کد ارسال شده به شماره تلفن ثبت شده را وارد کنید</p></div>
+                        <div class="col-md-12">
+                            <div class="row">
+                              
+                                <div class="form-group otp-field mb-4 d-flex justify-content-center" id="myInput" asp-validation-for="MobileActiveCode">
+                                <div class="col-2"> <input class="login-input" autocomplete="off" type="text" id="id1" maxlength="1" data-Order="1"  onkeyup="JumpToNextField(this,'id2',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id2" maxlength="1" data-Order="2"   onkeyup="JumpToNextField(this,'id3',event)" /></div>
+                                <div class="col-2"><input class="login-input space" autocomplete="off" type="text" id="id3" maxlength="1" data-Order="3"   onkeyup="JumpToNextField(this,'id4',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id4" maxlength="1" data-Order="4"   onkeyup="JumpToNextField(this,'id5',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id5" maxlength="1"  data-Order="5"  onkeyup="JumpToNextField(this,'id6',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id6" maxlength="1"data-Order="6" onkeyup="JumpToNextField(this,'id7',event)"  ></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="button rounded btn-1 p-2" type="submit" value="Create" id="submitMobileActiveCode"
+                                    onclick="showForm1()">ارسال</div>
+                                <p class="message">حساب کاربری دارید؟ <a href="#">ورود</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group" id="my2DIV">
+                        <img class="mb-4" src="image/Logo.png" alt="">
+                        <p class="fw-bold mb-3 fs-14">کد ارسال شده به شماره تلفن ثبت شده را وارد کنید</p>
+                    </div> -->
+
+                    <!-- <div class="form-group otp-field mb-4 d-flex justify-content-center" id="myInput">
+                        <input class="login-input" autocomplete="off" type="text" id="id1" maxlength="1" data-Order="1"  onkeyup="JumpToNextField(this,'id2',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id2" maxlength="1" data-Order="2"   onkeyup="JumpToNextField(this,'id3',event)" />
+                        <input class="login-input space" autocomplete="off" type="text" id="id3" maxlength="1" data-Order="3"   onkeyup="JumpToNextField(this,'id4',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id4" maxlength="1" data-Order="4"   onkeyup="JumpToNextField(this,'id5',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id5" maxlength="1"  data-Order="5"  onkeyup="JumpToNextField(this,'id6',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id6" maxlength="1"data-Order="6" onkeyup="JumpToNextField(this,'id7',event)"  >
+                    </div> -->
+                    <!-- <div class="form-group">
+                        <div class="button rounded btn-1 p-2" type="submit" value="Create" id="submitMobileActiveCode"
+                            onclick="showForm1()">ارسال</div>
+                        <p class="message">حساب کاربری دارید؟ <a href="#">ورود</a></p>
+                    </div> -->
+
+                </form>
+            </div>
+            <div class="col-md-4 "></div>
+        </div>
+</div>
+<script src="/bootstrap/bootstrap.js"></script>
+<script src="/bootstrap/bootstrap.bundle.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://kit.fontawesome.com/3b5d586b8c.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/Custom.js" type="text/javascript" asp-append-version="true"></script>
+</body>
+
+</html>

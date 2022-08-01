@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <title> Dashbord </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="fonts/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <input type="checkbox" id="menu">
+    <div class="sidebar h-100" dir="rtl">
+        <div class="sidebar-brand">
+            <img class="img-logo p-3 w-100 mt-2" src="image/Untitlesssd-1.png" />
+        </div>
+        
+        <div class="row user-wrapper d-flex " id="dropdown">
+            <img class="img-border" src="image/border1.png" >
+            <div class="col">
+                <img src="image/Untitled2.png" width="38" height="38" class="logo-admin rounded-circle">
+            </div>
+            <div class="col user-display">
+                <h5 class="fs-6">محمدرضا اقایی</h5>
+                <small>ادمین</small>
+            </div>
+           
+        </div>
+
+        <div class="sidebar-menu">
+            <ul class="p-0">
+                <li>
+                    <a href="index.html" class="active text-decoration-none d-block pe-3 py-2"><i class="fa-solid fa-house fs-5"></i><span>خانه</span></a>
+                </li>
+                <li onmouseenter="sammieBlueDark()" onmouseleave="sammieWhite()">
+                    <a href="sammie.html" class="text-decoration-none d-block pe-3  py-2"><img id="sammie-img" class="center" src="image/saamie.png" width="24" height="24" alt="سامانه سمیع"></span><span>سامانه سمیع</span></a>
+                </li>
+                <li onmouseenter="symfaBlueDark()" onmouseleave="symfaWhite()">
+                    <a href="symfa.html" class="text-decoration-none d-block pe-3 py-2 "><img id="symfa-img" src="image/symfa.png" width="24" height="24" alt="سامانه سیمفا"></span><span>سامانه سیمفا</span></a>
+                </li>
+                <li>
+                    <a href="#" class="text-decoration-none d-block pe-3 py-2"><i class="fa-solid fa-list-check fs-5"></i><span>درباره ما</span></a>
+                </li>
+                <li>
+                    <a href="#" class="text-decoration-none d-block pe-3 py-2"><i class="fa-solid fa-address-book fs-5"></i><span>تماس با ما</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+    <header class="d-flex justify-content-between w-100 position-sticky">
+        <label for="menu" class="d-block d-sm-block"><i class="fa-solid fa-bars fs-5 p-3"></i></label>
+        <div class="exit_link">
+            <a href="#">
+                <i id="tooltip" class="fa-solid fa-power-off"></i>
+            </a> 
+
+        </div>
+      
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                            <form class="cards mt-3 rounded p-5 pt-2" >
+                                <h6 class="text-center mt-3 mb-3">افزودن پلاک جدید</h6>
+                                <div class="img-plaque" style="position:relative;">
+                                    <img class="mt-3" src="image/plaque1.jpg">
+                                    <input onkeypress="validateForOnlyNumbersPress()" onkeyup="JumpToNextField(this,'id2')" dir="ltr"
+                                        style="position: absolute;top: 25px;width: 29px;height: 25px;left: 22px; border: none;" maxlength="2"
+                                        onkeydown="toPersianNum()" class="control-label text-center dropShow" />
+                                    <select class="dropShow" id="id2" onkeypress="validateForOnlyNumbersPress()"
+                                        onkeyup="JumpToNextField(this,'id3')"
+                                        style="position: absolute;top: 23px; width: 44px;height: 25px;left: 56px;border: none;">
+                                        <option value="01">الف</option>
+                                        <option value="02">ب</option>
+                                        <option value="03">ت</option>
+                                        <option value="04">ج</option>
+                                        <option value="05">د</option>
+                                        <option value="06">س</option>
+                                        <option value="07">ص</option>
+                                        <option value="08">ط</option>
+                                        <option value="09">ع</option>
+                                        <option value="10">ق</option>
+                                        <option value="11">ل</option>
+                                        <option value="12">م</option>
+                                        <option value="13">ن</option>
+                                        <option value="14">و</option>
+                                        <option value="15">ه</option>
+                                        <option value="16">ی</option>
+                                        <option value="18">گ</option>
+                                        <option value="19">ژ</option>
+                                    </select>
+                                    <input id="id3" onkeypress="validateForOnlyNumbersPress()" onkeyup="JumpToNextField(this,'id4')" dir="ltr"
+                                        style="position: absolute;top: 25px;width: 41px;height: 25px;left: 104px;border: none;" maxlength="3"
+                                        class="control-label text-center dropShow" />
+                                    <input id="id4" onkeypress="validateForOnlyNumbersPress()" dir="ltr"
+                                        style="position: absolute;top: 29px;right: 9px;width: 30px;height: 21px;border: none;" maxlength="2"
+                                        class="control-label text-center dropShow" />
+                                </div>
+                                <button class="btn button11 button m-auto d-block mt-3" type="button"><i class="fa-solid fa-magnifying-glass ms-2"></i>جستجو</button>
+                                <table class="table table-striped table-hover border mt-3 mb-2 shadow">
+                                    <thead>
+                                        <tr>
+                                            <th >ردیف</th>
+                                            <th >اول</th>
+                                            <th >دوم</th>
+                                            <th >سوم</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>1</th>
+                                            <td>سلام</td>
+                                            <td>سلام</td>
+                                            <td>سلام</td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                                <button class="button rounded w-50 m-auto d-block mt-3">ثبت</button>
+                            </form>
+                
+            </div>
+            
+        </div>
+    
+    </main>
+
+    </div>
+
+    <script src="bootstrap/bootstrap.js"></script>
+    <script src="bootstrap/bootstrap.bundle.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/Custom.js" type="text/javascript" asp-append-version="true"></script>
+   
+</body>
+
+</html>

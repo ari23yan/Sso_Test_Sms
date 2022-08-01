@@ -1,0 +1,128 @@
+﻿@model  Sso_Test_Sms.Models.ActivateMobileDTO
+@{
+    ViewData["Title"] = "فعالسازی تلفن همراه";
+    Layout = null;
+}
+
+@*<div class="breadcrumbs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="/">خانه</a></li>
+                        <li>@ViewData["Title"]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="customer_login mt-60">
+    <div class="container">
+        <div class="row">
+            <!--register area start-->
+            <div class="col-lg-6 col-md-6 offset-lg-3 offset-md-3">
+                <div class="account_form register">
+                    <h2>لاگین</h2>
+                    <form asp-controller="Account" asp-action="ActivateMobile" method="post" >
+                        <input type="hidden" asp-for="Mobile" />
+                        <p>
+                            <label> کد تایید<span>*</span></label>
+                            <input type="text" asp-for="MobileActiveCode">
+                            <span class="text-danger" asp-validation-for="MobileActiveCode"></span>
+                        </p>
+                        <div class="login_submit">
+                            <button type="submit">فعالسازی تلفن همراه</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--register area end-->
+        </div>
+    </div>
+</div>
+
+
+*@
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="fonts/fontawesome/css/fontawesome.min.css"> -->
+    <link rel="stylesheet" href="~/fonts/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="~/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <title>login Page</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 "></div>
+            <div class="col-md-4 pt-5">
+                <form id="mobileActiveCodeForm" method="post" class="">
+                    <div class="row">
+                        <div class="col-md-12"><img class="mb-3 logo" src="~/image/Logo.png" alt=""></div>
+                        <div class="col-md-12"><p class="fw-bold mb-3 fs-14">کد ارسال شده به شماره تلفن ثبت شده را وارد کنید</p></div>
+                        <div class="col-md-12">
+                            <div class="row">
+                              
+                                <div class="form-group otp-field mb-4 d-flex justify-content-center" id="myInput" asp-validation-for="MobileActiveCode">
+                                <div class="col-2"> <input class="login-input" autocomplete="off" type="text" id="id1" maxlength="1" data-Order="1"  onkeyup="JumpToNextField(this,'id2',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id2" maxlength="1" data-Order="2"   onkeyup="JumpToNextField(this,'id3',event)" /></div>
+                                <div class="col-2"><input class="login-input space" autocomplete="off" type="text" id="id3" maxlength="1" data-Order="3"   onkeyup="JumpToNextField(this,'id4',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id4" maxlength="1" data-Order="4"   onkeyup="JumpToNextField(this,'id5',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id5" maxlength="1"  data-Order="5"  onkeyup="JumpToNextField(this,'id6',event)" /></div>
+                                <div class="col-2"><input class="login-input" autocomplete="off" type="text" id="id6" maxlength="1"data-Order="6" onkeyup="JumpToNextField(this,'id7',event)"  ></div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button class="button rounded btn-1 p-2" type="submit" value="Create" id="submitMobileActiveCode"
+                                    >ارسال</button>
+                                <p class="message">حساب کاربری دارید؟ <a href="#">ورود</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group" id="my2DIV">
+                        <img class="mb-4" src="image/Logo.png" alt="">
+                        <p class="fw-bold mb-3 fs-14">کد ارسال شده به شماره تلفن ثبت شده را وارد کنید</p>
+                    </div> -->
+
+                    <!-- <div class="form-group otp-field mb-4 d-flex justify-content-center" id="myInput">
+                        <input class="login-input" autocomplete="off" type="text" id="id1" maxlength="1" data-Order="1"  onkeyup="JumpToNextField(this,'id2',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id2" maxlength="1" data-Order="2"   onkeyup="JumpToNextField(this,'id3',event)" />
+                        <input class="login-input space" autocomplete="off" type="text" id="id3" maxlength="1" data-Order="3"   onkeyup="JumpToNextField(this,'id4',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id4" maxlength="1" data-Order="4"   onkeyup="JumpToNextField(this,'id5',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id5" maxlength="1"  data-Order="5"  onkeyup="JumpToNextField(this,'id6',event)" />
+                        <input class="login-input" autocomplete="off" type="text" id="id6" maxlength="1"data-Order="6" onkeyup="JumpToNextField(this,'id7',event)"  >
+                    </div> -->
+                    <!-- <div class="form-group">
+                        <div class="button rounded btn-1 p-2" type="submit" value="Create" id="submitMobileActiveCode"
+                            onclick="showForm1()">ارسال</div>
+                        <p class="message">حساب کاربری دارید؟ <a href="#">ورود</a></p>
+                    </div> -->
+
+                </form>
+            </div>
+            <div class="col-md-4 "></div>
+        </div>
+</div>
+<script src="/bootstrap/bootstrap.js"></script>
+<script src="/bootstrap/bootstrap.bundle.js"></script>
+@*<script src="https://unpkg.com/@popperjs/core@2"></script>*@
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://kit.fontawesome.com/3b5d586b8c.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/Custom.js" type="text/javascript" asp-append-version="true"></script>
+</body>
+
+</html>

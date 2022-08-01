@@ -1,0 +1,105 @@
+﻿@model Sso_Test_Sms.Models.RegisterUserDTO
+@{
+    ViewData["Title"] = "ثسسسسسسسبت نام";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="fonts/fontawesome/css/fontawesome.min.css"> -->
+    <link rel="stylesheet" href="~/fonts/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="~/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <title>login Page</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 "></div>
+            <div class="col-md-4 pt-5">
+                <form id="registerForm" method="post" asp-controller="Account" asp-action="Register">
+                    <div class="row">
+                        <div class="col-md-12"><img class="logo mb-4" src="image/Logo.png" alt="logo"></div>
+                        <div class="col-md-12"><p class="fw-bold mb-3">ورود | ثبت‌نام</p></div>
+                        <div class="form-group " id="myDIV">
+                            <label class="mb-1" for="uname"> نام</label>
+                            <i class="fas fa-user"></i>
+                            <input class="w-100 rounded pe-2 mb-3" autocomplete="off" dir="rtl" asp-for="FirstName" type="text" id="uname"
+                                placeholder="آزاده داوری" onkeypress='validateUserName(event)' onkeyup="checkUserName(this)" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                            <div  id="userNameDiv"> </div>
+                        </div>
+                        <div class="form-group " id="myDIV">
+                            <label class="mb-1" for="uname"> نام خانوادگی</label>
+                            <i class="fas fa-user"></i>
+                            <input class="w-100 rounded pe-2 mb-3" autocomplete="off" dir="rtl" asp-for="LastName" type="text" id="uname"
+                                placeholder="آزاده داوری" onkeypress='validateUserName(event)' onkeyup="checkUserName(this)" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                            <div  id="userNameDiv"> </div>
+                        </div>
+                       @* <div class="form-group ">
+                            <label class="mb-1" for="ncode"> کدملی</label>
+                            <i class="fas fa-user-circle"></i>
+
+                            <input class="w-100 rounded pe-2 mb-3" autocomplete="off" dir="rtl" asp-for="NationalCode" type="text"
+                                maxlength="10" id="ncode" placeholder="کد ملی 10 رقمی" onkeypress='validateForOnlyNumbersPress(event)'
+                                onkeyup="CheckNcode(this)">
+                            <div id="nCodeDiv"> </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            <label class="mb-1" for="telNumber">شماره موبایل</label>
+                            <i class="fas fa-phone"></i>
+                            <input class="w-100 rounded ps-5 mb-4" autocomplete="off" type="tel" asp-for="Mobile" maxlength="11" id="telNumber"
+                                placeholder="09*********" onkeypress='validateForOnlyNumbersPress(event)' onkeyup="checkMobile(this)" />
+                                <span asp-validation-for="Mobile" class="text-danger"></span>
+                            <div class="mb-3" id="MobileDiv"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-1" for="telNumber"> پسورد</label>
+                            <i class="fas fa-phone"></i>
+                            <input class="w-100 rounded ps-5 mb-4" autocomplete="off" type="tel" asp-for="Password" maxlength="11" id="telNumber"
+                                placeholder="09*********"  />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            <div class="mb-3" id="MobileDiv"> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="mb-1" for="telNumber"> تکرار</label>
+                            <i class="fas fa-phone"></i>
+                            <input class="w-100 rounded ps-5 mb-4" autocomplete="off" type="tel" asp-for="ConfirmPassword" maxlength="11" id="telNumber"
+                                placeholder="09*********"  />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <div class="mb-3" id="MobileDiv"> </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="button rounded p-2" type="submit" value="Create" id="submitRegisterForm">
+                                ارسال
+                            </button>
+
+                            
+                            <p class="message">حساب کاربری دارید؟ <a href="#">ورود</a></p>
+                        </div>
+                    </div>
+                </form>       
+            </div>
+            <div class="col-md-4 "></div>
+        </div>
+</div>
+<script src="~/bootstrap/bootstrap.js"></script>
+<script src="~/bootstrap/bootstrap.bundle.js"></script>
+<script src="https://unpkg.com/@@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://kit.fontawesome.com/3b5d586b8c.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/js/Custom.js" type="text/javascript" asp-append-version="true"></script>
+</body>
+</html>
